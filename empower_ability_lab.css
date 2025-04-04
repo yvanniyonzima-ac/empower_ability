@@ -49,3 +49,96 @@ main {
     }
   }
   /*end of service section*/
+
+  /*start of schedule a call section*/
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 24px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+      background-size: cover;
+      background-position: center;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+position: absolute;
+content: "";
+height: 14px;
+width: 14px;
+left: 5px;
+bottom: 5px;
+background-color: white;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+
+input:checked + .slider:before {
+-webkit-transform: translateX(21px);
+-ms-transform: translateX(21px);
+transform: translateX(21px);
+}
+
+  .slider.round {
+border-radius: 34px;
+background-image: url('images/Off_Button_Toggle_Switch.jpg');
+background-size: cover;
+background-position: center;
+transition: background-image 0.3s ease;
+
+}
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  #discussionTopics {
+  border: 2px solid #333;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+#eventDetailsGroup {
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+
+#eventDetailsGroup.show {
+  max-height: 200px;
+  opacity: 1;
+  
+}
+.btn-schedule {
+  background-color: #F6C446;
+  color: #000000;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-schedule:hover {
+  background-color: #F6C446;
+}
