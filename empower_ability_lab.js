@@ -5,16 +5,38 @@ toggleBtn.addEventListener("click", () => {
   navMenu.classList.toggle("open");
 });
 
+// load content into <main>
+function loadContent(page) {
+  console.log("Loading content for:", page);
+  fetch(page)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('main-content').innerHTML = html;
+    })
+    .catch(error => {
+      document.getElementById('main-content').innerHTML = "<p>Error loading content.</p>";
+      console.error("Error loading page:", error);
+    });
+}
+
+// load home page content by default
+window.addEventListener("DOMContentLoaded", () => {
+  loadContent('home.html');
+});
+
+// open lightbox function
 function openLightbox() {
   document.getElementById("lightbox").style.display = "block";
   document.getElementById("lightbox").setAttribute("tabindex", "0");
 }
 
+// close lightbox function
 function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
   document.getElementById("lightbox").removeAttribute("tabindex");
 }
 
+// logic for shcedulling a call form
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('callForm');
   const response = document.getElementById('formResponse');
