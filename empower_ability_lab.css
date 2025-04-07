@@ -1,29 +1,25 @@
 body {
     font-family: Arial, sans-serif;
-
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
 }
-
+ 
 p {
-    /* Make sure all text in p tags are left aligned */
     text-align: left !important;
 }
-
+ 
 main {
-    padding-left: 100px;
-    padding-right: 100px;
-
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
-
-/*start of service section*/
-
-
+ 
 .center {
     margin: auto;
     padding: 10px;
-
 }
-
-/* Basic Navbar Layout */
+ 
 .navbar {
     display: flex;
     align-items: center;
@@ -31,19 +27,20 @@ main {
     background-color: #F6C447;
     padding: 10px 20px;
     flex-wrap: wrap;
+    gap: 2rem;
 }
-
+ 
 .navbar img {
     border-color: #000000;
     border-width: 2px;
-    border-style:groove;
+    border-style: groove;
 }
-
-/* Navigation styling */
+ 
 .nav-menu {
     display: flex;
+    flex-grow: 1;
 }
-
+ 
 .nav_list {
     list-style: none;
     display: flex;
@@ -51,7 +48,7 @@ main {
     margin: 0;
     padding: 0;
 }
-
+ 
 .nav_list li a {
     color: black;
     text-decoration: none;
@@ -59,14 +56,12 @@ main {
     border: 1px solid black;
     border-radius: 4px;
 }
-
+ 
 .nav_list li a:hover {
     background-color: #e2935e;
     color: white;
 }
-
-
-/* Hamburger Button (hidden by default) */
+ 
 .menu-toggle {
     display: none;
     background: none;
@@ -75,48 +70,37 @@ main {
     border: none;
     cursor: pointer;
 }
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-menu {
-        display: none;
-        width: 100%;
-    }
-
-    .nav-menu.open {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .nav_list {
-        flex-direction: column;
-        gap: 16px;
-        /* ⬅️ Increase spacing between items */
-        margin: 0;
-        padding: 0;
-    }
-
-    .nav_list li {
-        text-align: center;
-    }
-
-    .nav_list li a {
-        padding: 12px 16px;
-        /* ⬅️ More padding inside the buttons */
-        display: inline-block;
-    }
+ 
+/* Crucial:  Only toggle display, not flex properties */
+.nav-menu.open {
+    display: flex;
+    /* Ensure it becomes flex again */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
 }
-
+ 
+/* Keep the nav items vertical when open */
+.nav-menu.open .nav_list {
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+}
+ 
+.nav-menu.open .nav_list li {
+    text-align: center;
+}
+ 
+.nav-menu.open .nav_list li a {
+    padding: 12px 16px;
+    display: inline-block;
+}
+ 
 .text-left {
     text-align: left;
 }
-
-/*Lightbox styles*/
+ 
 .open-lightbox {
     background-color: #F6C446;
     color: black;
@@ -127,18 +111,17 @@ main {
     border-radius: 3px;
     margin-bottom: 10px;
 }
-
+ 
 .open-lightbox:hover {
     background-color: #e2935e;
 }
-
-/* Lightbox Container (Initially Hidden) */
+ 
 .lightbox {
     display: none;
     position: fixed;
-    top: 50%;
+    top: 20px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%); /* Only center horizontally */
     background: white;
     padding: 20px;
     width: 80%;
@@ -146,17 +129,14 @@ main {
     text-align: center;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-
-
 }
-
+ 
 .lightbox ul {
     list-style-position: inside;
     text-align: left;
     padding-left: 0;
 }
-
-/* Close Button */
+ 
 .close-lightbox {
     background-color: #dc3545;
     color: white;
@@ -167,13 +147,11 @@ main {
     border-radius: 5px;
     margin-top: 15px;
 }
-
+ 
 .close-lightbox:hover {
     background-color: #c82333;
 }
-
-/* Grid Styling */
-
+ 
 .row {
     display: flex;
     flex-wrap: nowrap;
@@ -182,7 +160,7 @@ main {
     width: 100%;
     box-sizing: border-box;
 }
-
+ 
 .col-3 {
     flex: 0 0 33.33%;
     max-width: 33.33%;
@@ -190,17 +168,17 @@ main {
     padding-right: 10px;
     box-sizing: border-box;
 }
-
-.col-3 h3{
+ 
+.col-3 h3 {
     text-align: center;
 }
-
+ 
 .col-2-left {
     flex: 0 0 70%;
     max-width: 70%;
     padding-right: 20px;
 }
-
+ 
 .col-2-right {
     flex: 0 0 30%;
     max-width: 30%;
@@ -208,39 +186,73 @@ main {
     justify-content: center;
     margin-top: 10px;
 }
-
+ 
 .col-2-right img {
     max-width: 100%;
     height: 100px;
     width: 100px;
 }
-
-/* Responsive fallback */
+ 
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+ 
+    /* Only hide the nav menu, not change its flex properties */
+    .nav-menu {
+        display: none;
+        width: 100%;
+    }
+ 
     .row {
         flex-direction: column;
     }
-
-    .col-2,
-    .right-column {
+ 
+    .col-2-left,
+    .col-2-right {
         width: 100%;
         text-align: center;
+        padding-right: 10px;
+    }
+ 
+    .col-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }
-
-/*End of service section*/
-
-/*Start of schedule a call section*/
+ 
 .container {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    /* gap: 5px; */
 }
+ 
+.container label {
+    margin-right: 0.5rem;
+}
+ 
+.container > div {
+    display: flex;
+    align-items: center;
+    /* gap: 10px; */
+  }
+ 
+  .container input {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* On small screens, stack label above input */
+  @media (max-width: 768px) {
+    .container > div {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+ 
 .fieldset {
     margin-top: 10px;
 }
-
-
+ 
 #discussionTopics {
     border: 2px solid #333;
     border-radius: 6px;
@@ -248,40 +260,37 @@ main {
     margin-bottom: 1rem;
     transition: all 0.3s ease;
 }
-
+ 
 #eventDetailsGroup {
     transition: max-height 0.3s ease, opacity 0.3s ease;
     overflow: hidden;
     max-height: 0;
     opacity: 0;
-
-    /* For the label to apear above the text area above */
     display: flex;
     flex-direction: column;
     gap: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
+ 
 #eventDetailsGroup.show {
     max-height: 200px;
     opacity: 1;
-
 }
-
+ 
 .switch {
     position: relative;
     display: inline-block;
     width: 45px;
     height: 24px;
 }
-
+ 
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
-
+ 
 .slider {
     background-size: cover;
     background-position: center;
@@ -295,7 +304,7 @@ main {
     -webkit-transition: .4s;
     transition: .4s;
 }
-
+ 
 .slider:before {
     position: absolute;
     content: "";
@@ -307,27 +316,25 @@ main {
     -webkit-transition: .4s;
     transition: .4s;
 }
-
-
+ 
 input:checked+.slider:before {
     -webkit-transform: translateX(21px);
     -ms-transform: translateX(21px);
     transform: translateX(21px);
 }
-
+ 
 .slider.round {
     border-radius: 34px;
     background-image: url('images/Off_Button_Toggle_Switch.jpg');
     background-size: cover;
     background-position: center;
     transition: background-image 0.3s ease;
-
 }
-
+ 
 .slider.round:before {
     border-radius: 50%;
 }
-
+ 
 .btn-schedule {
     background-color: #F6C446;
     color: #000000;
@@ -338,13 +345,12 @@ input:checked+.slider:before {
     transition: background-color 0.3s ease;
     margin-top: 10px;
 }
-
+ 
 .btn-schedule:hover {
     background-color: #E2935E;
 }
-
-/* Footer styles */
-footer div {
+ 
+footer {
     background-color: #333333;
     color: white;
     text-align: center;
