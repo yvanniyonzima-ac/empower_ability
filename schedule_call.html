@@ -25,13 +25,17 @@
             </div>
 
             <div>
-                <label for="phone">Phone Number (613-123-1234)</label>
-                <input type="tel" id="phone" name="phone" pattern="\d{10}" maxlength="10" required>
+                <label id="phoneLabel" for="phone">
+                    Phone Number 
+                    <span id="phoneExample" class="visually-hidden">Example</span>
+                    (613-123-1234)
+                </label>
+                <input type="tel" id="phone" name="phone" pattern="\d{10}" maxlength="10" aria-labelledby="phoneLabel" required>
             </div>
 
             <div>
-                <label for="email">Email (required)</label>
-                <input type="email" id="email" name="email" required>
+                <label id="emailLabel" for="email">Email (Required)</label>
+                <input type="email" id="email" name="email" autocomplete="email" aria-labelledby="emailLabel">
             </div>
         </div>
 
@@ -56,7 +60,7 @@
         </fieldset>
 
         <!-- Conditional Textarea inside the box -->
-        <div id="eventDetailsGroup">
+        <div id="eventDetailsGroup" aria-hidden="true">
             <label for="eventDetails">Please tell us about your event:</label>
             <textarea id="eventDetails" rows="4"></textarea>
         </div>

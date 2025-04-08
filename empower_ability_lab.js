@@ -1,9 +1,5 @@
 const toggleBtn = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
- // Set focus to the first navigation item when page loads
- window.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('firstNavItem').focus();
-}); 
 
 toggleBtn.addEventListener("click", () => {
   navMenu.classList.toggle("open");
@@ -63,6 +59,9 @@ function attachEventListeners() {
       eventDetailsGroup.classList.toggle('show', inviteSpeakerTopicCheckbox.checked);
       if (!inviteSpeakerTopicCheckbox.checked) {
         eventDetails.value = '';
+        eventDetailsGroup.setAttribute('aria-hidden', 'true');
+      } else {
+        eventDetailsGroup.setAttribute('aria-hidden', 'false');
       }
     });
   }

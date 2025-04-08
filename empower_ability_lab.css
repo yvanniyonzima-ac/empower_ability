@@ -5,21 +5,21 @@ body {
     min-height: 100vh;
     margin: 0;
 }
- 
+
 p {
     text-align: left !important;
 }
- 
+
 main {
     padding-left: 5vw;
     padding-right: 5vw;
 }
- 
+
 .center {
     margin: auto;
     padding: 10px;
 }
- 
+
 .navbar {
     display: flex;
     align-items: center;
@@ -29,18 +29,18 @@ main {
     flex-wrap: wrap;
     gap: 2rem;
 }
- 
+
 .navbar img {
     border-color: #000000;
     border-width: 2px;
     border-style: groove;
 }
- 
+
 .nav-menu {
     display: flex;
     flex-grow: 1;
 }
- 
+
 .nav_list {
     list-style: none;
     display: flex;
@@ -48,7 +48,7 @@ main {
     margin: 0;
     padding: 0;
 }
- 
+
 .nav_list li a {
     color: black;
     text-decoration: none;
@@ -56,12 +56,12 @@ main {
     border: 1px solid black;
     border-radius: 4px;
 }
- 
+
 .nav_list li a:hover {
     background-color: #e2935e;
     color: white;
 }
- 
+
 .menu-toggle {
     display: none;
     background: none;
@@ -70,7 +70,7 @@ main {
     border: none;
     cursor: pointer;
 }
- 
+
 /* Crucial:  Only toggle display, not flex properties */
 .nav-menu.open {
     display: flex;
@@ -79,7 +79,7 @@ main {
     width: 100%;
     margin-top: 10px;
 }
- 
+
 /* Keep the nav items vertical when open */
 .nav-menu.open .nav_list {
     flex-direction: column;
@@ -87,20 +87,20 @@ main {
     margin: 0;
     padding: 0;
 }
- 
+
 .nav-menu.open .nav_list li {
     text-align: center;
 }
- 
+
 .nav-menu.open .nav_list li a {
     padding: 12px 16px;
     display: inline-block;
 }
- 
+
 .text-left {
     text-align: left;
 }
- 
+
 .open-lightbox {
     background-color: #F6C446;
     color: black;
@@ -111,17 +111,18 @@ main {
     border-radius: 3px;
     margin-bottom: 10px;
 }
- 
+
 .open-lightbox:hover {
     background-color: #e2935e;
 }
- 
+
 .lightbox {
     display: none;
     position: fixed;
     top: 20px;
     left: 50%;
-    transform: translateX(-50%); /* Only center horizontally */
+    transform: translateX(-50%);
+    /* Only center horizontally */
     background: white;
     padding: 20px;
     width: 80%;
@@ -130,13 +131,13 @@ main {
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
- 
+
 .lightbox ul {
     list-style-position: inside;
     text-align: left;
     padding-left: 0;
 }
- 
+
 .close-lightbox {
     background-color: #dc3545;
     color: white;
@@ -147,11 +148,11 @@ main {
     border-radius: 5px;
     margin-top: 15px;
 }
- 
+
 .close-lightbox:hover {
     background-color: #c82333;
 }
- 
+
 .row {
     display: flex;
     flex-wrap: nowrap;
@@ -160,7 +161,7 @@ main {
     width: 100%;
     box-sizing: border-box;
 }
- 
+
 .col-3 {
     flex: 0 0 33.33%;
     max-width: 33.33%;
@@ -168,17 +169,17 @@ main {
     padding-right: 10px;
     box-sizing: border-box;
 }
- 
+
 .col-3 h3 {
     text-align: center;
 }
- 
+
 .col-2-left {
     flex: 0 0 70%;
     max-width: 70%;
     padding-right: 20px;
 }
- 
+
 .col-2-right {
     flex: 0 0 30%;
     max-width: 30%;
@@ -186,73 +187,73 @@ main {
     justify-content: center;
     margin-top: 10px;
 }
- 
+
 .col-2-right img {
     max-width: 100%;
     height: 100px;
     width: 100px;
 }
- 
+
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
     }
- 
+
     /* Only hide the nav menu, not change its flex properties */
     .nav-menu {
         display: none;
         width: 100%;
     }
- 
+
     .row {
         flex-direction: column;
     }
- 
+
     .col-2-left,
     .col-2-right {
         width: 100%;
         text-align: center;
         padding-right: 10px;
     }
- 
+
     .col-3 {
         flex: 0 0 100%;
         max-width: 100%;
     }
 }
- 
+
 .container {
     display: flex;
     flex-direction: column;
     /* gap: 5px; */
 }
- 
+
 .container label {
     margin-right: 0.5rem;
 }
- 
-.container > div {
+
+.container>div {
     display: flex;
     align-items: center;
     /* gap: 10px; */
-  }
- 
-  .container input {
+}
+
+.container input {
     margin-bottom: 0.5rem;
-  }
-  
-  /* On small screens, stack label above input */
-  @media (max-width: 768px) {
-    .container > div {
-      flex-direction: column;
-      align-items: flex-start;
+}
+
+/* On small screens, stack label above input */
+@media (max-width: 768px) {
+    .container>div {
+        flex-direction: column;
+        align-items: flex-start;
     }
-  }
- 
+}
+
 .fieldset {
     margin-top: 10px;
 }
- 
+
 #discussionTopics {
     border: 2px solid #333;
     border-radius: 6px;
@@ -260,7 +261,7 @@ main {
     margin-bottom: 1rem;
     transition: all 0.3s ease;
 }
- 
+
 #eventDetailsGroup {
     transition: max-height 0.3s ease, opacity 0.3s ease;
     overflow: hidden;
@@ -272,25 +273,25 @@ main {
     margin-top: 10px;
     margin-bottom: 10px;
 }
- 
+
 #eventDetailsGroup.show {
     max-height: 200px;
     opacity: 1;
 }
- 
+
 .switch {
     position: relative;
     display: inline-block;
     width: 45px;
     height: 24px;
 }
- 
+
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
- 
+
 .slider {
     background-size: cover;
     background-position: center;
@@ -304,7 +305,7 @@ main {
     -webkit-transition: .4s;
     transition: .4s;
 }
- 
+
 .slider:before {
     position: absolute;
     content: "";
@@ -316,13 +317,13 @@ main {
     -webkit-transition: .4s;
     transition: .4s;
 }
- 
+
 input:checked+.slider:before {
     -webkit-transform: translateX(21px);
     -ms-transform: translateX(21px);
     transform: translateX(21px);
 }
- 
+
 .slider.round {
     border-radius: 34px;
     background-image: url('images/Off_Button_Toggle_Switch.jpg');
@@ -330,11 +331,11 @@ input:checked+.slider:before {
     background-position: center;
     transition: background-image 0.3s ease;
 }
- 
+
 .slider.round:before {
     border-radius: 50%;
 }
- 
+
 .btn-schedule {
     background-color: #F6C446;
     color: #000000;
@@ -345,11 +346,11 @@ input:checked+.slider:before {
     transition: background-color 0.3s ease;
     margin-top: 10px;
 }
- 
+
 .btn-schedule:hover {
     background-color: #E2935E;
 }
- 
+
 footer {
     background-color: #333333;
     color: white;
@@ -360,4 +361,15 @@ footer {
     width: 100%;
     box-sizing: border-box;
     margin-top: 10px;
+}
+
+.visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
