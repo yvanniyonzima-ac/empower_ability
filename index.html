@@ -18,7 +18,7 @@
   <header>
     <div class="navbar">
       <!-- Logo -->
-      <img src="images/empower_ability_labs_logo.png" alt="Empower Ability Labs Logo" width="250" height="80">
+      <img tabindex="0" src="images/empower_ability_labs_logo.png" alt="Empower Ability Labs Logo" width="250" height="80" id="firstNavItem">
  
       <!-- Hamburger Button (hidden on desktop) -->
       <button class="menu-toggle" id="menuToggle">&#9776;</button>
@@ -26,9 +26,9 @@
       <!-- Navigation Menu -->
       <nav class="nav-menu" id="navMenu">
         <ul class="nav_list">
-          <li><a onclick="loadContent('home.html')">Home</a></li>
-          <li><a onclick="loadContent('services.html')">Services</a></li>
-          <li><a onclick="loadContent('schedule_call.html')">Schedule a Call</a></li>
+          <li><a tabindex="0" onclick="loadContent('home.html')">Home</a></li>
+          <li><a tabindex="0" onclick="loadContent('services.html')">Services</a></li>
+          <li><a tabindex="0" onclick="loadContent('schedule_call.html')">Schedule a Call</a></li>
         </ul>
       </nav>
     </div>
@@ -53,7 +53,10 @@
  
   </footer>
  
-  <script src="empower_ability_lab.js"></script>
+  <!-- <script src="empower_ability_lab.js">// Set focus to the first navigation item when page loads
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('firstNavItem').focus();
+    });</script> -->
  
  
 </body>
